@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', function(){
     return view('home');
 });
+
+Route::get('{path}', 'HomeController@index')->where(
+
+    ['path', '([A-z\d\-\/_.]+)?', 'path']
+
+);
